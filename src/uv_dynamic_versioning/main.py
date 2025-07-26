@@ -1,7 +1,7 @@
-from __future__ import annotations
 
 import os
 import re
+from typing import Optional
 from pathlib import Path
 
 import tomlkit
@@ -25,7 +25,7 @@ def validate(project: tomlkit.TOMLDocument):
     return schemas.Project.from_dict(project.unwrap())
 
 
-def _get_bypassed_version() -> str | None:
+def _get_bypassed_version() -> Optional[str]:
     return os.environ.get("UV_DYNAMIC_VERSIONING_BYPASS")
 
 

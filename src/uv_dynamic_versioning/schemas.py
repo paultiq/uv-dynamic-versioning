@@ -1,10 +1,10 @@
-from __future__ import annotations
-
 from dataclasses import dataclass, field
 from functools import cached_property
+from typing import Optional
 
 from dataclasses_json import config, dataclass_json
 from dunamai import Style, Vcs
+
 
 @dataclass_json
 @dataclass
@@ -17,35 +17,35 @@ class BumpConfig:
 @dataclass
 class UvDynamicVersioning:
     vcs: Vcs = Vcs.Any
-    metadata: bool | None = None
+    metadata: Optional[bool] = None
     tagged_metadata: bool = field(
         default=False, metadata=config(field_name="tagged-metadata")
     )
     dirty: bool = False
     pattern: str = "default"
-    pattern_prefix: str | None = field(
+    pattern_prefix: Optional[str] = field(
         default=None, metadata=config(field_name="pattern-prefix")
     )
-    format: str | None = None
-    format_jinja: str | None = field(
+    format: Optional[str] = None
+    format_jinja: Optional[str] = field(
         default=None, metadata=config(field_name="format-jinja")
     )
-    style: Style | None = None
+    style: Optional[Style] = None
     latest_tag: bool = False
     strict: bool = False
     tag_dir: str = field(default="tags", metadata=config(field_name="tag-dir"))
-    tag_branch: str | None = field(
+    tag_branch: Optional[str] = field(
         default=None, metadata=config(field_name="tag-branch")
     )
     full_commit: bool = field(default=False, metadata=config(field_name="full-commit"))
     ignore_untracked: bool = field(
         default=False, metadata=config(field_name="ignore-untracked")
     )
-    commit_length: int | None = field(
+    commit_length: Optional[int] = field(
         default=None, metadata=config(field_name="commit-length")
     )
-    bump: bool | BumpConfig = False
-    fallback_version: str | None = field(
+    bump: Optional[bool] = False
+    fallback_version: Optional[str] = field(
         default=None, metadata=config(field_name="fallback-version")
     )
 
@@ -63,7 +63,7 @@ class UvDynamicVersioning:
 @dataclass_json
 @dataclass
 class Tool:
-    uv_dynamic_versioning: UvDynamicVersioning | None = field(
+    uv_dynamic_versioning: Optional[UvDynamicVersioning] = field(
         default=None, metadata=config(field_name="uv-dynamic-versioning")
     )
 
@@ -77,7 +77,7 @@ class Project:
 @dataclass_json
 @dataclass
 class MetadataHookConfig:
-    dependencies: list[str] | None = None
-    optional_dependencies: dict[str, list[str]] | None = field(
+    dependencies: Optional[list[str]] = None
+    optional_dependencies: Optional[dict[str, list[str]]] = field(
         default=None, metadata=config(field_name="optional-dependencies")
     )

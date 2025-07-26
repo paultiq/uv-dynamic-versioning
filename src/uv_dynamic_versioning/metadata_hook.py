@@ -1,10 +1,8 @@
-from __future__ import annotations
-
 from functools import cached_property
 
 from dunamai import Version
 from hatchling.metadata.plugin.interface import MetadataHookInterface
-
+from typing import Optional
 from . import schemas
 from .base import BasePlugin
 from .main import get_version
@@ -30,7 +28,7 @@ class DependenciesMetadataHook(BasePlugin, MetadataHookInterface):
 
         return version
 
-    def render_dependencies(self) -> list[str] | None:
+    def render_dependencies(self) -> Optional[list[str]]:
         if self.plugin_config.dependencies is None:
             return None
 
@@ -39,7 +37,7 @@ class DependenciesMetadataHook(BasePlugin, MetadataHookInterface):
             for dep in self.plugin_config.dependencies
         ]
 
-    def render_optional_dependencies(self) -> dict[str, list[str]] | None:
+    def render_optional_dependencies(self) -> Optional[dict[str, list[str]]]:
         if self.plugin_config.optional_dependencies is None:
             return None
 
