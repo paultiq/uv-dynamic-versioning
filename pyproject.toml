@@ -16,7 +16,6 @@ classifiers = [
   "Framework :: Hatch",
 ]
 dependencies = [
-  "dataclasses-json>=0.6.7",
   "dunamai~=1.23",
   "eval-type-backport~=0.2;python_version<'3.10'",
   "hatchling~=1.26",
