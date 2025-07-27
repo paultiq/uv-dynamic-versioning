@@ -1,9 +1,8 @@
-from __future__ import annotations
-
 import contextlib
 import os
 import re
 from datetime import datetime
+from typing import Optional
 
 import jinja2
 from dunamai import (
@@ -25,13 +24,13 @@ def base_part(base: str, index: int) -> int:
     return result
 
 
-def _escape_branch(value: str | None) -> str | None:
+def _escape_branch(value: Optional[str]) -> Optional[str]:
     if value is None:
         return None
     return re.sub(r"[^a-zA-Z0-9]", "", value)
 
 
-def _format_timestamp(value: datetime | None) -> str | None:
+def _format_timestamp(value: Optional[datetime]) -> Optional[str]:
     if value is None:
         return None
 
