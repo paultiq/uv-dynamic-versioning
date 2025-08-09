@@ -1,5 +1,5 @@
 [project]
-name = "uv-dynamic-versioning"
+name = "uv-dynamic-versioning-nopydantic"
 dynamic = ["version"]
 description = "Dynamic versioning based on VCS tags for uv/hatch project"
 readme = "README.md"
