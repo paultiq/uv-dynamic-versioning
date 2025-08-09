@@ -24,8 +24,8 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/ninoseki/uv-dynamic-versioning/"
-Homepage = "https://github.com/ninoseki/uv-dynamic-versioning/"
+Repository = "https://github.com/paultiq/uv-dynamic-versioning-nopydantic/"
+Homepage = "https://github.com/paultiq/uv-dynamic-versioning-nopydantic/"
 
 [project.entry-points.hatch]
 uv-dynamic-versioning = "uv_dynamic_versioning.hooks"
@@ -65,3 +65,6 @@ select = [
 ignore = [
   "E501", # line too long
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = [{include = "uv_dynamic_versioning", from = "src"}]
