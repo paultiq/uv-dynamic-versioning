@@ -34,9 +34,6 @@ uv-dynamic-versioning = "uv_dynamic_versioning.hooks"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.hatch.version]
-path = "src/uv_dynamic_versioning/__init__.py"
-
 [dependency-groups]
 dev = [
   "gitpython~=3.1.44",
@@ -76,4 +73,4 @@ include = ["uv-dynamic-versioning"]
 "./uv-dynamic-versioning" = "uv-dynamic-versioning"
 
 [tool.hatch.version]
-source = "uv-dynamic-versioning"
+path = "src/uv_dynamic_versioning/__init__.py"
