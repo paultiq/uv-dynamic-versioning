@@ -66,5 +66,14 @@ ignore = [
   "E501", # line too long
 ]
 
+[tool.hatch.build.targets.sdist]
+include = ["uv-dynamic-versioning"]
+
 [tool.hatch.build.targets.wheel]
-packages = [{include = "uv_dynamic_versioning", from = "src"}]
+include = ["uv-dynamic-versioning"]
+
+[tool.hatch.build.targets.wheel.sources]
+"./uv-dynamic-versioning" = "uv-dynamic-versioning"
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
